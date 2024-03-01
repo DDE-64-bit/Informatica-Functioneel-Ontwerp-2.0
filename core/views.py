@@ -69,26 +69,3 @@ def login(request):
 def uitloggen(request):
     auth.logout(request)
     return redirect("login")
-
-@login_required(login_url="login")
-def post_list(request):
-    posts = Post.objects.all()
-    return render(request, 'post_list.html', {'posts': posts})
-
-
-from django.shortcuts import render, redirect
-from .models import Post
-
-def maak_post(request):
-    if not request.user.is_superuser:
-        return render(request, 'index.html')
-    if request.method == 'POST':
-        titel = request.POST.get('titel')
-        inhoud = request.POST.get('inhoud')
-        if titel:
-            Post.objects.create(titel=titel, inhoud=inhoud)
-            return redirect('post_list')
-        else:
-            return render(request, "maak_post.html")
-    else:
-        return render(request, "maak_post.html")
