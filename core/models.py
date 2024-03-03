@@ -1,9 +1,11 @@
-#from django.db import models
-#
-#class Post(models.Model):
-#    titel = models.CharField(max_length=200)
-#    inhoud = models.TextField()
-#    gemaakt_op = models.DateTimeField(auto_now_add=True)
-#
-#    def __str__(self):
-#        return self.titel
+from django.db import models
+from django.conf import settings
+
+class Hond(models.Model):
+    naamHond = models.CharField(max_length=100)
+    eigenaarNaam = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    plaats = models.CharField(max_length=100)
+    zichtbaar_op_site = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.naamHond

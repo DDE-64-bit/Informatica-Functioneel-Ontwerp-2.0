@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import *
 
-@login_required(login_url="login")
+# @login_required(login_url="login")
 def index(request):
     return render(request, "index.html")
 
@@ -69,3 +69,16 @@ def login(request):
 def uitloggen(request):
     auth.logout(request)
     return redirect("login")
+
+def hondAanmelden(request):
+    if request.method == "POST":
+        naam = request.POST.get('naam')
+        plaats = request.POST.get('plaats')
+        zichtbaar_op_site = 'zichtbaar_op_site' in request.POST
+
+        nieuwe_hond = Hond(naamHond=naam, eigenaarNaam=request.user, plaats=plaats, zichtbaar_op_site=zichtbaar_op_site)
+        nieuwe_hond.save()
+        
+        return render(request, 'hondAanmelden.html')
+    else:
+        return render(request, 'hondAanmelden.html')
