@@ -76,7 +76,8 @@ def hondAanmelden(request):
         plaats = request.POST.get('plaats')
         zichtbaar_op_site = 'zichtbaar_op_site' in request.POST
 
-        nieuwe_hond = Hond(naamHond=naam, eigenaarNaam=request.user, plaats=plaats, zichtbaar_op_site=zichtbaar_op_site)
+        nieuwe_hond = Hond(naamHond=naam, eigenaarNaam=request.user, plaats=plaats)
+        # , zichtbaar_op_site=zichtbaar_op_site
         nieuwe_hond.save()
         
         return render(request, 'hondAanmelden.html')

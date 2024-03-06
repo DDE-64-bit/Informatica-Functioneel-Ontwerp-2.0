@@ -1,2 +1,13 @@
-# Informatica-Functioneel-Ontwerp
-Dit is een repo voor een informatica opdracht over functionele ontwerpen.
+# Informatica Opdracht
+
+## Onderwerp site
+Als onderwerp heb ik gekozen om een site te maken voor mensen die graag een hond willen uitlaten maar zelf geen hond hebben.
+
+## Persona
+
+| Persoonlijke informatie       | Houdt niet van| Intresses |
+|----------                     |:--------:     |---------: |
+| Daan Jansen                   | Vissen        | Sporten   |
+| 21                            | Koud eten     | Voetbal   |
+| Man                           | Studeren      | Wandelen  |
+| Wageningen                    | Stil zitten   | Dieren    |
