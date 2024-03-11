@@ -13,9 +13,9 @@ Als onderwerp heb ik gekozen om een site te maken voor mensen die graag een hond
 | Wageningen                    | Stil zitten   | Dieren    |
 
 
-| Kansen                            | Houdt niet van| Intresses |
-|----------                         |:--------:     |---------: |
-| Zoekt naar een huisdier           | Vissen        | Sporten   |
-| Is gevoelig voor schattige dieren | Koud eten     | Voetbal   |
-| Man                               | Studeren      | Wandelen  |
-| Wageningen                        | Stil zitten   | Dieren    |
+| Kansen                            | Hobby's en werk   |
+|----------                         |:--------:         |
+| Zoekt naar een huisdier           | Vissen            |
+| Is gevoelig voor schattige dieren | Koud eten         |
+| Man                               | Studeren          |
+| Wageningen                        | Stil zitten       |

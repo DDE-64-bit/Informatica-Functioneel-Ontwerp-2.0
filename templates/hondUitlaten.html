@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hond Aanmelden</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="number"], textarea {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <style>
+            h4{
+                color: lightgreen;
+            }
+        </style>
+        {% for message in messages %}
+        <h4>{{message}}</h4>
+        {% endfor %}
+    </div>
+    <div class="container">
+        <h1>Uitlater Aanmelden</h1>
+        <form method="post" action="/">
+            {% csrf_token %}
+            <label for="naam">Volledige Naam:</label>
+            <input type="text" id="naam" name="naam" required>
+
+            <label for="plaats">Woonplaats:</label>
+            <input type="text" ++id="plaats" name="plaats" required>
+
+            <!--
+            <label for="zichtbaar_op_site">Toon mijn hond op de site:</label>
+            <input type="checkbox" id="zichtbaar_op_site" name="zichtbaar_op_site" style="margin-top: -15px; margin-left: 475px; margin-bottom: 0px ;">
+            -->
+            <button type="submit">Aanmelden</button>
+        </form>
+    </div>
+</body>
+</html>

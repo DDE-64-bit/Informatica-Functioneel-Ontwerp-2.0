@@ -83,3 +83,17 @@ def hondAanmelden(request):
         return render(request, 'hondAanmelden.html')
     else:
         return render(request, 'hondAanmelden.html')
+    
+def hondUitlaten(request):
+    if request.method == "POST":
+        naam = request.POST.get('naam')
+        plaats = request.POST.get('plaats')
+        # zichtbaar_op_site = 'zichtbaar_op_site' in request.POST
+
+        nieuweUitlater = Uitlater(naamUitlater=naam, plaats=plaats, gebruiker=request.user)
+        # , zichtbaar_op_site=zichtbaar_op_site
+        nieuweUitlater.save()
+        
+        return render(request, 'hondUitlaten.html')
+    else:
+        return render(request, 'hondUitlaten.html')
