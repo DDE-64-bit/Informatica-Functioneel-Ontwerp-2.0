@@ -51,29 +51,23 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Hondenuitlaatservice</h1>
-    </div>
+    <main>
+        <h2>Honden</h2>
     
-    <div class="content">
-
-        <div class="section">
-            <h2>Alle honden</h2>
-            <p>Bekijk hier de honden die je kan uitlaten</p>
-            <a href="/honden" class="btn">Bekijk!</a>
-        </div>
-
-        <div class="section">
-            <h2>Hond Uitlaten</h2>
-            <p>Ben je een hondenliefhebber zonder hond? Meld je dan nu aan om een hond in jouw buurt uit te laten!</p>
-            <a href="/hondUitlaten" class="btn">Aanmelden als Uitlater</a>
-        </div>
-
-        <div class="section">
-            <h2>Je Hond Aanmelden</h2>
-            <p>Heeft jouw hond behoefte aan meer beweging? Meld je hond aan en vind de perfecte uitlater.</p>
-            <a href="/hondAanmelden" class="btn">Aanmelden van je Hond</a>
-        </div>
-    </div>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <label for="plaats">Plaats:</label>
+            <input type="text" name="gevraagdePlaats" id="gevraagdePlaats">
+    
+            <button type="submit">Zoek</button>
+        </form>
+    
+        {% for Hond in honden %}
+            <div>
+                <h3>{{ Hond.naamHond }}</h3>
+                <p>Plaats: {{ Hond.plaats }}</p>
+            </div>
+        {% endfor %}
+    </main>
 </body>
 </html>

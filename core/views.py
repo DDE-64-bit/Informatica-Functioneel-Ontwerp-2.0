@@ -7,7 +7,9 @@ from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required
 
-from .models import *
+from .models import Hond
+from .models import Uitlater
+from django.contrib.auth.models import Group
 
 @login_required(login_url="login")
 def index(request):
@@ -64,7 +66,6 @@ def login(request):
     else:
         return render(request, "login.html")
     
-    
 @login_required(login_url="login")
 def uitloggen(request):
     auth.logout(request)
@@ -86,14 +87,27 @@ def hondAanmelden(request):
     
 def hondUitlaten(request):
     if request.method == "POST":
-        naam = request.POST.get('naam')
+        naamUitlater = request.POST.get('naam')
         plaats = request.POST.get('plaats')
-        # zichtbaar_op_site = 'zichtbaar_op_site' in request.POST
 
-        nieuweUitlater = Uitlater(naamUitlater=naam, plaats=plaats, gebruiker=request.user)
+        nieuweUitlater = Uitlater(naamUitlater=naamUitlater, plaats=plaats, gebruiker=request.user)
+        print("linken")
         # , zichtbaar_op_site=zichtbaar_op_site
         nieuweUitlater.save()
-        
+
+        request.user.uitlater = nieuweUitlater
+
+        # add nieuweUitlater to the group Uitlater
+        uitlater_group = Group.objects.get(name='Uitlater')
+
         return render(request, 'hondUitlaten.html')
     else:
         return render(request, 'hondUitlaten.html')
+    
+def honden(request):
+    if request.method == "POST":
+        gevraagdePlaats = request.POST.get('gevraagdePlaats')
+        honden = Hond.objects.filter(plaats=gevraagdePlaats)
+        return render(request, 'honden.html', {'honden': honden})
+    else: 
+        return render(request, 'honden.html')
