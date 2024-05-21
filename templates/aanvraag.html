@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aanvraag</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .header {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+        }
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%; /* Aanpassen naar gewenste breedte */
+        }
+        .section {
+            margin: 20px;
+        }
+        .section1 {
+            margin: 20px;
+            margin-top: 80px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Aanvraag word behandeld</h1>
+    </div>
+    
+    <div class="content">
+<!--
+        <div class="section1">
+            <h2>Alle honden</h2>
+            <p>Bekijk hier de honden die je kan uitlaten</p>
+            <a href="/honden" class="btn">Bekijk!</a>
+        </div>
+-->
+        <div class="section">
+            <h2>Kijk naar een andere hond</h2>
+            <a href="/honden" class="btn">Ander hond</a>
+        </div>
+
+        <div class="section">
+            <h2>Of ga terug naar home</h2>
+            <a href="/" class="btn">Homer</a>
+        </div>
+    </div>
+</body>
+</html>

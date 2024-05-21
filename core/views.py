@@ -11,6 +11,10 @@ from .models import Hond
 from .models import Uitlater
 from django.contrib.auth.models import Group
 
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
 @login_required(login_url="login")
 def index(request):
     return render(request, "index.html")
@@ -111,3 +115,6 @@ def honden(request):
         return render(request, 'honden.html', {'honden': honden})
     else: 
         return render(request, 'honden.html')
+    
+def aanvraag(request):
+    return render(request, 'aanvraag.html')
